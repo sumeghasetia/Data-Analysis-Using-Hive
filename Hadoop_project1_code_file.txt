@@ -1,0 +1,26 @@
+Sqoop job Command:
+
+sqoop import --connect "jdbc:mysql://quickstart.cloudera:3306/antwak" 
+	--username root \
+	--password cloudera \ 
+	--table customers \
+	--target-dir /user/cloudera/ingest/raw/antwak_customers \
+	--fields-terminated-by "," \
+	--hive-import \
+	--create-hive-table \
+	--hive-table sqoop_workspace.antwak_customers 
+
+
+Queries for each of the questions:
+
+Q1: select count(1) as NUM_RECORDS from sqoop_workspace.antwak_customers;
+
+Q2: select count(1) as NUM_RECORDS from sqoop_workspace.antwak_customers where customer_state = 'TX';
+
+Q3: select count(1) as NUM_RECORDS, customer_state from sqoop_workspace.antwak_customers group by customer_state order by NUM_RECORDS asc limit 1;
+
+Q4: select count(1) as NUM_RECORDS, customer_state from sqoop_workspace.antwak_customers group by customer_state order by NUM_RECORDS desc limit 1;
+
+Q5: select count(1) as NUM_RECORDS, customer_fname from sqoop_workspace.antwak_customers where customer_fname ='Mary' group by customer_fname;
+
+
