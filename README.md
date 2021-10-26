@@ -1,4 +1,4 @@
-# Data Analysis Using Hive
+# Data Analysis Using Hive and Sqoop
 
 This project is a part of my Masters program in Data Engineering
 
